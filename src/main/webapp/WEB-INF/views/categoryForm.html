@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카테고리 등록</title>
+</head>
+<body>
+<h1>카테고리 등록</h1>
+<form th:action="@{/categories/create}" th:object="${categoryForm}" method="post">
+    <div>
+        <label>카테고리 이름</label>
+        <input type="text" th:field="*{name}" placeholder="카테고리 이름"/>
+        <span th:errors="*{name}" style="color:red"></span>
+    </div>
+    <button type="submit">등록</button>
+    <a href="/categories">취소</a>
+</form>
+<footer style="margin-top:30px; padding:10px; border-top:1px solid #ccc; font-size:13px; color:#555;">
+    실습 수행 일시:
+    <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy년 MM월 dd일 HH:mm:ss')}"></span>
+    &nbsp;│&nbsp; 학번: 2271213 &nbsp;│&nbsp; 성명: 정채운
+</footer>
+
+</body>
+</html>
