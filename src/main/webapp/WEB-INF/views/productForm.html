@@ -28,6 +28,13 @@
         .required { color: #e74c3c; }
     </style>
 </head>
+
+<footer style="margin-top:30px; padding:10px; border-top:1px solid #ccc; font-size:13px; color:#555;">
+    실습 수행 일시:
+    <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy년 MM월 dd일 HH:mm:ss')}"></span>
+    &nbsp;│&nbsp; 학번: 2271213 &nbsp;│&nbsp; 성명: 정채운
+</footer>
+
 <body>
 
     <h1>새 상품 등록</h1>
