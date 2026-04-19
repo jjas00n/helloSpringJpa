@@ -42,6 +42,26 @@
 
 <body>
 
+<!-- 검색 폼 -->
+<form th:action="@{/products}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="상품명 검색"/>
+    <select name="categoryId">
+        <option value="">-- 전체 카테고리 --</option>
+        <option th:each="cat : ${categories}"
+                th:value="${cat.id}"
+                th:text="${cat.name}"
+                th:selected="${cat.id == categoryId}">
+        </option>
+    </select>
+    <button type="submit">검색</button>
+    <a th:href="@{/products}">초기화</a>
+</form>
+
+<!-- 결과 없음 메시지 -->
+<p th:if="${#lists.isEmpty(products)}" style="color:gray">
+    검색 결과가 없습니다.
+</p>
+
     <h1>상품 목록</h1>
 
     <!--
